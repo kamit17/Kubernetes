@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ib-rs
+  labels:
+    app: bank
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bank
+  template:
+    metadata:
+      labels:
+        app: bank
+    spec:
+      containers:
+      - name: cont1
+        image: trainerreyaz/ib-image:latest
