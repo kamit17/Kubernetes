@@ -4,12 +4,12 @@ metadata:
   name: myapp-deployment
   labels:
     tier: frontend
-    app: nginx
+    app: myapp   
 spec:
+  replicas: 4
   selector:
     matchLabels:
       app: myapp
-  replicas: 3
   template:
     metadata:
       labels:
@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx
+          image: nginx:1.12
