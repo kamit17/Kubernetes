@@ -36,11 +36,13 @@ helm repo update
 kubectl create namespace monitoring
 ```
 
-#### 4. Install `kube-prometheus-stack` via Helm
+#### 4. Install `kube-prometheus-stack and Grafana` via Helm
 
 ```bash
 helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring
+helm install grafana grafana/grafana
 ```
+
 - Uses default configuration out-of-the-box; customizations can be added in future (`-f <values.yaml>`).
 
 #### 5. Access Prometheus, Grafana, Alertmanager UIs
@@ -50,6 +52,8 @@ Non-WSL - Can expose port as nodeport and access
 ```bash
 kubectl expose service prometheus-server --type=NodePort --target-port=9090 --port=9090 --name=prometheus-server-ext
 ```
+helm install grafana grafana/grafana
+helm install grafana grafana/grafana
 - Obtain NodePort by running `kubectl get svc`.  
 - Access via  `http://<minikube-ip>:<nodeport>`.  
 
