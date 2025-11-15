@@ -52,8 +52,6 @@ Non-WSL - Can expose port as nodeport and access
 ```bash
 kubectl expose service prometheus-server --type=NodePort --target-port=9090 --port=9090 --name=prometheus-server-ext
 ```
-helm install grafana grafana/grafana
-helm install grafana grafana/grafana
 - Obtain NodePort by running `kubectl get svc`.  
 - Access via  `http://<minikube-ip>:<nodeport>`.  
 
