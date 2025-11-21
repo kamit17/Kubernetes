@@ -1,1 +1,1 @@
-Kubernetes repo
+ Collection of Kubernetes Practice examples.
